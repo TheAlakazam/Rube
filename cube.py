@@ -229,10 +229,13 @@ class Cube(object):
     def reset(self):
         self.__init__()
 
+    def getConfig(self):
+        return self.colors
+    def setConfig(self, conf):
+        self.config = conf
+
 
 if __name__ == '__main__':
-    conf = [5, 1, 2, 5, 0, 1, 3, 3, 0, 3, 5, 1, 4, 1, 0, 3, 0, 0, 4, 2, 2, 1, 2, 3, 1, 5, 2, 4, 0, 2, 4, 3, 0, 5, 3, 5, 1, 4, 0, 3, 4, 2, 3, 2, 4, 0, 5, 4, 2, 5, 4, 1, 1, 5]
-    c = Cube(config = conf)
+    c = Cube()
     c.display()
-    print()
-    c.execute("R F D' R2", display = True)
+    c.execute("R L U2 R L' B2 U2 R2 F2 L2 D2 L2 F2", display = True)
