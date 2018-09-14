@@ -238,4 +238,5 @@ class Cube(object):
 if __name__ == '__main__':
     c = Cube()
     c.display()
+    print(c.getConfig())
     c.execute("R L U2 R L' B2 U2 R2 F2 L2 D2 L2 F2", display = True)
