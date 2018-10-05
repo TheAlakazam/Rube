@@ -3,6 +3,7 @@
 import colorama
 from colorama import Fore, Back, Style
 import sys
+import video
 
 DEFAULT_CONFIG = [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5] 
 class Color:
@@ -236,7 +237,8 @@ class Cube(object):
 
 
 if __name__ == '__main__':
+    w = video.Webcam()
+    config = w.scan()
     c = Cube()
+    c.setConfig(config)
     c.display()
-    print(c.getConfig())
-    c.execute("R L U2 R L' B2 U2 R2 F2 L2 D2 L2 F2", display = True)
