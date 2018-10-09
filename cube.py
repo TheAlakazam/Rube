@@ -4,6 +4,9 @@ import colorama
 from colorama import Fore, Back, Style
 import sys
 import video
+import random
+import kociemba
+import parser
 
 DEFAULT_CONFIG = [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5] 
 class Color:
@@ -234,11 +237,22 @@ class Cube(object):
         return self.colors
     def setConfig(self, conf):
         self.config = conf
-
+    def scrambler(self, n):
+        lom = ('F', 'L', 'R', 'U', 'D', 'B')
+        mods = ('', "'", '2')
+        moves = ''
+        for i in range(n):
+            move = random.choice(lom) + random.choice(mods)
+            moves += move + ' '
+        moves = moves[:-1]
+        print(moves)
+        self.execute(moves)
 
 if __name__ == '__main__':
-    w = video.Webcam()
-    config = w.scan()
     c = Cube()
-    c.setConfig(config)
+    c.scrambler(40)
     c.display()
+    s = kociemba.solve(parser.parser_cube2solver(c.getConfig()))
+    c.execute(s)
+    c.display()
+

@@ -1,10 +1,7 @@
 #! /usr/bin/env python3
-
-from cube import *
-import kociemba
+import cube
 import math
-
-def parser(config):
+def parser_cube2solver(config):
     cubestring = ""
     temp = []
     for i in config:
@@ -30,8 +27,4 @@ def parser(config):
     temp2.extend(temp[2])
     cubestring = ''.join(temp2)
     return cubestring
-c = Cube()
-c.execute("R B' L' R' D2 L' F' D2 B' L2 R2 F2 B' U' L B' D' U R' U' B2 D' L B' U",display = True)
-print(c.getConfig())
-s = parser(c.getConfig())
-print(kociemba.solve(s))
+
