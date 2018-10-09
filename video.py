@@ -137,7 +137,3 @@ class Webcam:
             return config
         else:
             return False
-
-webcam = Webcam()
-d = webcam.scan()
-print(d)
