@@ -1,7 +1,7 @@
 # Rubiks
-Rubiks cube solver using OpenCV
+Rubiks cube solver using OpenCV and OpenGL for 3D representation of the cube
 
 ## TODO
 + [x] OpenCV return color
-+ [ ] Solver
-+ [ ] GUI
++ [x] Solver
++ [x] GUI
