@@ -10,12 +10,12 @@ import parser
 
 DEFAULT_CONFIG = [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5] 
 class Color:
-    WHITE = 0
+    RED = 0
     BLUE = 1
-    YELLOW = 2
+    ORANGE = 2
     GREEN = 3
-    ORANGE = 4
-    RED = 5
+    WHITE = 4
+    YELLOW = 5
 
 class Side(object):
     F = 0
@@ -37,7 +37,7 @@ class Cube(object):
         self.colors = config
         self.faces = {
                 Side.F: Face(
-                        Side.F, Color.WHITE,
+                        Side.F, Color.RED,
                         self.bottom_line(Side.U),
                         self.left_column(Side.R),
                         self.top_line(Side.D, True),
@@ -51,7 +51,7 @@ class Cube(object):
                         self.right_column(Side.F, True)
                     ),
                 Side.B: Face(
-                        Side.B, Color.YELLOW,
+                        Side.B, Color.ORANGE,
                         self.top_line(Side.U),
                         self.left_column(Side.L, True),
                         self.bottom_line(Side.D, True),
@@ -65,14 +65,14 @@ class Cube(object):
                         self.right_column(Side.B, True)
                     ),
                 Side.U: Face(
-                        Side.U, Color.ORANGE,
+                        Side.U, Color.WHITE,
                         self.top_line(Side.B),
                         self.top_line(Side.R),
                         self.top_line(Side.F),
                         self.top_line(Side.L)
                     ),
                 Side.D: Face(
-                        Side.D, Color.RED,
+                        Side.D, Color.YELLOW,
                         self.bottom_line(Side.F),
                         self.bottom_line(Side.R),
                         self.bottom_line(Side.B),
@@ -236,7 +236,7 @@ class Cube(object):
     def getConfig(self):
         return self.colors
     def setConfig(self, conf):
-        self.config = conf
+        self.colors = conf
     def scrambler(self, n):
         lom = ('F', 'L', 'R', 'U', 'D', 'B')
         mods = ('', "'", '2')
@@ -250,9 +250,12 @@ class Cube(object):
 
 if __name__ == '__main__':
     c = Cube()
-    c.scrambler(40)
+    c.scrambler(20)
     c.display()
     s = kociemba.solve(parser.parser_cube2solver(c.getConfig()))
+    print(s)
     c.execute(s)
     c.display()
+    w = video.Webcam()
+    w.scan()
 

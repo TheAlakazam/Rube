@@ -24,7 +24,7 @@ class CubeView(object):
 
     def on_draw(self):
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        self._draw_history()
+        # self._draw_history()
         self._draw_2d()
         self._draw_3d()
         glFlush()

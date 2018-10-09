@@ -64,11 +64,11 @@ class Webcam:
         """
         notation = {
             'green'  : 3,
-            'white'  : 0,
+            'white'  : 4,
             'blue'   : 1,
-            'red'    : 5,
-            'orange' : 4,
-            'yellow' : 2
+            'red'    : 0,
+            'orange' : 2,
+            'yellow' : 5
         }
         return notation[color]
 

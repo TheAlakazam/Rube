@@ -10,18 +10,18 @@ class ColorDetection:
         #print((h,s,v))
         if h > 140 and h < 170 and s > 170:
             return 'red'
-        if h > 150 and s > 160 and v > 180 :
+        if s > 165 and h > 175:
             return 'orange'
-        elif h <= 30 and s <= 100:
+        elif h >= 110 and s <= 60 and v >= 135:
             return 'white'
-        elif h > 15 and h <= 35 and v > 190:
+        elif h < 30 and s > 65 and v > 110:
             return 'yellow'
-        elif h > 35 and h <= 50:
+        elif h > 35 and h <= 95 and s > 27 and s <= 117:
             return 'green'
         elif h > 90 and h <= 110 and s > 100:
             return 'blue'
 
-        return 'white'
+        return 'orange'
 
     def name_to_rgb(self, name):
         """

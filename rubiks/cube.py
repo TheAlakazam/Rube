@@ -70,7 +70,7 @@ class Cube(object):
         commands = ''
         shuffled = 0
         while shuffled < count:
-            command = '{}{} '.format(random.choice('ULFRBDMES'), "'" if random.randrange(5) == 0 else '')
+            command = '{}{} '.format(random.choice('ULFRBD'), "'" if random.randrange(5) == 0 else '')
             if command[0] != previous[0] or command[1] == previous[1]:
                 previous = command
                 commands += command
